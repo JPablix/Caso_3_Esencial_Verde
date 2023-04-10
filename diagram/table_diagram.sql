@@ -321,3 +321,23 @@ CREATE TABLE sponsorCompanies (
     endDate DATE NOT NULL,
     FOREIGN KEY (companyId) REFERENCES companies(companyId)
 );
+
+-- Tema para botar los residuos
+
+CREATE TABLE dropoffPoints (
+    dropoffPointId INT NOT NULL PRIMARY KEY IDENTITY,
+    name VARCHAR(255) NOT NULL,
+    locationId INT NOT NULL,
+    FOREIGN KEY (locationId) REFERENCES locations(locationId)
+);
+
+CREATE TABLE dropoff_log (
+    dropoff_logId INT NOT NULL PRIMARY KEY IDENTITY,
+    dropoffPointId INT NOT NULL,
+    fleetId INT NOT NULL,
+    wasteTypeId INT NOT NULL,
+    amount FLOAT NOT NULL,
+    FOREIGN KEY (dropoffPointId) REFERENCES dropoffPoints(dropoffPointId),
+    FOREIGN KEY (fleetId) REFERENCES fleet(fleetId),
+    FOREIGN KEY (wasteTypeId) REFERENCES wasteTypes(wasteTypeId)
+);
