@@ -1,5 +1,5 @@
 -- Tablas Base del proyecto --
-
+ 
 --TO DO:
     -- Posibles Tablas por Agregar: colletionPoints
     -- Arreglar las columnas de wasteTraceability
