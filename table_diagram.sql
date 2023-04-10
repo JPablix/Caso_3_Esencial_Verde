@@ -1,9 +1,15 @@
 -- Tablas Base del proyecto --
  
 --TO DO:
-    -- Posibles Tablas por Agregar: colletionPoints
+    -- Posibles Tablas por Agregar: colletionPoints (Analizar si es necesaria o no)
     -- Arreglar las columnas de wasteTraceability
     -- Columna tipo BIT para saber si una empresa es nacional o externa
+    -- Definir los pagos de las empresas como
+    -- Definir los pagos de los productores como:
+                    -- Pago por ser sponsor
+                    -- Pago a Esencial Verde por recolectar los residuos
+                    -- Pago por dar material de reciclaje que se converitra en un producto
+
 
 CREATE TABLE states (
     stateId INT PRIMARY KEY IDENTITY,
@@ -35,6 +41,8 @@ CREATE TABLE producers (
     phone VARCHAR(20) NOT NULL,
     email VARCHAR(255) NOT NULL,
     locationId INT NOT NULL,
+    sponsorCompanyId INT,
+    FOREIGN KEY (sponsorCompanyId) REFERENCES sponsorCompanies(sponsorCompanyIdw)
     FOREIGN KEY (locationId) REFERENCES locations(locationId)
 );
 
